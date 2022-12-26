@@ -1,0 +1,130 @@
+.initial_btn{
+  padding: 30px;
+  font-size: 23px;
+border-radius: 15px;
+outline: none;
+border: 1px solid green;
+background-color: #225d69;
+cursor: pointer;
+transition: 0.3s;
+color: #d5d5d5;
+font-weight: 500;
+
+}
+
+.initial_btn:hover{
+  transform: translateY(-10px);
+  box-shadow: 10px 12px 30px #12343b;
+}
+
+.app_wrapper {
+  background-color: #12343b;
+  min-width: 450px;
+  min-height: 650px;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 3px 6px 40px #000;
+  margin-bottom: 10px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 20px 0;
+}
+
+.nav_btn1 {
+    color: rgb(234, 231, 231);
+  }
+
+.nav_btn2 {
+  margin: 0 10px;
+  color: rgb(234, 231, 231);
+}
+
+.nav_btn3 {
+    color: rgb(234, 231, 231);
+  }
+
+.header1 {
+    color:#f7b87d;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+.header2 {
+    color: rgb(234, 231, 231);
+  font-size: 20px;
+  font-weight: 200;
+  margin-bottom: 15px;
+}
+
+.task_input {
+  outline: none;
+  width: 460px;
+  padding: 10px;
+  margin-right: 15px;
+  font-size: 17px;
+  color: #ccc;
+  background-color: #212121;
+  border: 1px solid #f7b87d;
+  border-radius: 10px;
+}
+
+.task_display {
+  outline: none;
+  width: 460px;
+  padding: 10px;
+  margin-right: 15px;
+  font-size: 18px;
+  color: #ccc;
+  background-color: #212121;
+  border: 1px solid #f7b87d;
+  border-radius: 10px;
+}
+
+.task_display_heading{
+  margin-bottom: 20px;
+  margin-top: 40px;
+  color: rgb(234, 231, 231);
+  font-size: 20px;
+  font-weight: 200;
+
+}
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.button_add {
+  align-self: center;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  color: rgb(51, 167, 51);
+}
+
+.button_delete {
+  align-self: center;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  color: #c40303;
+}
+
+.list_item {
+  display: flex;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  max-height: 30px;
+}
+
+.button:focus {
+  outline: none;
+}
