@@ -42,7 +42,7 @@ const checkWallet=async()=>{
     console.log(accounts[0])
     }
     catch(error){
-      alert("Please Install Metamask")
+     console.log("Please Install Metamsk")
     }
   
   }
