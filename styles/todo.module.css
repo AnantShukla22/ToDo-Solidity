@@ -20,8 +20,8 @@ font-weight: 500;
 
 .app_wrapper {
   background-color: #12343b;
-  min-width: 420px;
-  min-height: 650px;
+  width: 450px;
+  height: 650px;
   padding: 30px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -129,30 +129,22 @@ font-weight: 500;
   outline: none;
 }
 
+
+
 @media screen and (max-width:1024px) {
   .app_wrapper {
-    min-width: 350px;
-    min-height: 550px;
-    padding: 25px;
+    width: 450px;
+    height: 650px;
+    padding: 30px;
     margin-bottom: 10px;
   }
-  .header1 {
-  font-size: 26px;
-  }
-.header2 {
-  font-size: 18px;
 
-}
-.task_display_heading{
-  font-size: 19px;
-
-}
 }
 
 @media screen and (max-width: 600px) {
   .app_wrapper {
-    min-width: 250px;
-    min-height: 520px;
+    width: 310px;
+    height: 520px;
     padding: 20px;
     margin-bottom: 10px;
   }
