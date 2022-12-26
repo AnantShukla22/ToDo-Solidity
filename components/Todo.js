@@ -18,33 +18,30 @@ const Todo = () => {
   const [input, setInput] = useState('')
   const [tasks, setTasks] = useState([]) // an array which store all tasks
 
-// check wallet
-const checkWallet=async()=>{
-  const {ethereum}=window
-  if(ethereum){
-     const provider = new ethers.providers.Web3Provider(window.ethereum);  //metamask gets connected
-    const accounts = await provider.send("eth_requestAccounts", []);
-    setCurrentAccount(accounts[0])
+  // check wallet
+  const checkWallet = async () => {
+    const { ethereum } = window
+    if (ethereum) {
+    }
+    else {
+      alert("Please Install Metamsk")
+    }
   }
-  else{
-    alert("Please Install Metamsk")
-  }
-}
-  
+
   // connecting wallet
   const connectWallet = async () => {
     checkWallet()
-    try{
-        const provider = new ethers.providers.Web3Provider(window.ethereum);  //metamask gets connected
-    const accounts = await provider.send("eth_requestAccounts", []);
-    setIsLoggedIn(true)
-    setCurrentAccount(accounts[0])
-    console.log(accounts[0])
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);  //metamask gets connected
+      const accounts = await provider.send("eth_requestAccounts", []);
+      setIsLoggedIn(true)
+      setCurrentAccount(accounts[0])
+      console.log(accounts[0])
     }
-    catch(error){
-     console.log("Please Install Metamsk")
+    catch (error) {
+      console.log("Please Install Metamsk")
     }
-  
+
   }
 
 
@@ -70,8 +67,8 @@ const checkWallet=async()=>{
   }
 
 
-  useEffect( () => {
-       getAllTask()
+  useEffect(() => {
+    getAllTask()
   })
 
   // add a task
@@ -126,7 +123,7 @@ const checkWallet=async()=>{
       {/* if not logged in */}
       {!isLoggedIn && (
         <div>
-          <button onClick={connectWallet}  className={styles.initial_btn}>
+          <button onClick={connectWallet} className={styles.initial_btn}>
             Click To Connect Wallet
           </button>
         </div>
