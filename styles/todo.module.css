@@ -13,19 +13,19 @@ font-weight: 500;
 }
 
 .initial_btn:hover{
-  transform: translateY(-10px);
   box-shadow: 10px 12px 30px #12343b;
+    transform: translateY(-10px);
+
 }
 
 .app_wrapper {
   background-color: #12343b;
-  min-width: 450px;
+  min-width: 420px;
   min-height: 650px;
   padding: 30px;
   box-sizing: border-box;
   border-radius: 10px;
   box-shadow: 3px 6px 40px #000;
-  margin-bottom: 10px;
 }
 
 .nav {
@@ -63,7 +63,7 @@ font-weight: 500;
 
 .task_input {
   outline: none;
-  width: 460px;
+  width: 100%;
   padding: 10px;
   margin-right: 15px;
   font-size: 17px;
@@ -75,7 +75,7 @@ font-weight: 500;
 
 .task_display {
   outline: none;
-  width: 460px;
+  width: 100%;
   padding: 10px;
   margin-right: 15px;
   font-size: 18px;
@@ -127,4 +127,44 @@ font-weight: 500;
 
 .button:focus {
   outline: none;
+}
+
+@media screen and (max-width:1024px) {
+  .app_wrapper {
+    min-width: 350px;
+    min-height: 550px;
+    padding: 25px;
+    margin-bottom: 10px;
+  }
+  .header1 {
+  font-size: 26px;
+  }
+.header2 {
+  font-size: 18px;
+
+}
+.task_display_heading{
+  font-size: 19px;
+
+}
+}
+
+@media screen and (max-width: 600px) {
+  .app_wrapper {
+    min-width: 250px;
+    min-height: 520px;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+  .header1 {
+  font-size: 24px;
+  }
+.header2 {
+  font-size: 17px;
+
+}
+.task_display_heading{
+  font-size: 17px;
+
+}
 }
