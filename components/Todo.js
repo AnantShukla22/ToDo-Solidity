@@ -11,24 +11,47 @@ import { useEffect, useState } from "react"
 
 const Todo = () => {
 
+
+
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [currentAccount, setCurrentAccount] = useState('')
   const [input, setInput] = useState('')
   const [tasks, setTasks] = useState([]) // an array which store all tasks
 
+// check wallet
+const checkWallet=async()=>{
+  const {ethereum}=window
+  if(ethereum){
+     const provider = new ethers.providers.Web3Provider(window.ethereum);  //metamask gets connected
+    const accounts = await provider.send("eth_requestAccounts", []);
+    setCurrentAccount(accounts[0])
+  }
+  else{
+    alert("Please Install Metamsk")
+  }
+}
+  
   // connecting wallet
   const connectWallet = async () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);  //metamask gets connected
+    checkWallet()
+    try{
+        const provider = new ethers.providers.Web3Provider(window.ethereum);  //metamask gets connected
     const accounts = await provider.send("eth_requestAccounts", []);
     setIsLoggedIn(true)
     setCurrentAccount(accounts[0])
     console.log(accounts[0])
+    }
+    catch(error){
+      alert("Please Install Metamask")
+    }
+  
   }
 
 
   // getAllTask
   const getAllTask = async () => {
     try {
+
       // when add a task button is clicked we want metamask to open up
       const provider = new ethers.providers.Web3Provider(window.ethereum);  //metamask gets connected
       // after that we want to sign it as proof
@@ -46,8 +69,9 @@ const Todo = () => {
     }
   }
 
-  useEffect(() => {
-    getAllTask()
+
+  useEffect( () => {
+       getAllTask()
   })
 
   // add a task
@@ -77,26 +101,23 @@ const Todo = () => {
 
 
   // delete a task
-  const deleteTask =async (key) => {
-try {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);  //metamask gets connected
-  const signer = provider.getSigner()
-  const TaskContract = new ethers.Contract(
-    TaskContractAddress,
-    TaskABI.abi,
-    signer)
-// deleting task
-    await TaskContract.deleteTask(key,true)  
-    // now lets get all the tasks after fitering
-    let allTasks = await TaskContract.getMyTasks()
+  const deleteTask = async (key) => {
+    try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);  //metamask gets connected
+      const signer = provider.getSigner()
+      const TaskContract = new ethers.Contract(
+        TaskContractAddress,
+        TaskABI.abi,
+        signer)
+      // deleting task
+      await TaskContract.deleteTask(key, true)
+      // now lets get all the tasks after fitering
+      let allTasks = await TaskContract.getMyTasks()
       setTasks(allTasks)
-} catch (error) {
-  console.log(error)
-}
+    } catch (error) {
+      console.log(error)
+    }
   }
-
-
-
 
 
 
@@ -105,7 +126,7 @@ try {
       {/* if not logged in */}
       {!isLoggedIn && (
         <div>
-          <button onClick={connectWallet} className={styles.initial_btn}>
+          <button onClick={connectWallet}  className={styles.initial_btn}>
             Click To Connect Wallet
           </button>
         </div>
@@ -136,7 +157,7 @@ try {
               <form className={styles.form} key={item.id}>
                 {/* displaying the tasks */}
                 <p className={styles.task_display}>{item.taskText}</p>
-                <AiFillDelete onClick={()=>deleteTask(item.id)} className={styles.button_delete} size={32} />
+                <AiFillDelete onClick={() => deleteTask(item.id)} className={styles.button_delete} size={32} />
               </form>
             ))}
           </ul>
