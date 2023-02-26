@@ -21,7 +21,7 @@ font-weight: 500;
 .app_wrapper {
   background-color: #12343b;
   width: 450px;
-  height: 650px;
+  height:620px;
   padding: 30px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -134,7 +134,16 @@ font-weight: 500;
 @media screen and (max-width:1024px) {
   .app_wrapper {
     width: 450px;
-    height: 650px;
+    height: 600px;
+    padding: 30px;
+    margin-bottom: 10px;
+  }
+
+}
+@media screen and (max-width:800px) {
+  .app_wrapper {
+    width: 370px;
+    height: 540px;
     padding: 30px;
     margin-bottom: 10px;
   }
